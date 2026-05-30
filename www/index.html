@@ -16,28 +16,45 @@
 
     /* ── Language bar ── */
     #lang-bar {
-      background: #2c2c2c;
-      padding: 10px 20px;
+      background: #0f3460;
+      padding: 12px 24px;
       display: flex;
       justify-content: flex-end;
-      gap: 8px;
+      align-items: center;
+      gap: 6px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    }
+    #lang-bar .lang-label {
+      color: #8ab0d0;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-right: 6px;
     }
     #lang-bar button {
-      background: transparent;
-      border: 1px solid #888;
-      color: #ccc;
-      padding: 4px 14px;
+      background: rgba(255,255,255,0.08);
+      border: 2px solid rgba(255,255,255,0.25);
+      color: #d0e4f5;
+      padding: 6px 18px;
       cursor: pointer;
-      font-size: 0.85rem;
-      border-radius: 3px;
-      letter-spacing: 0.05em;
-      transition: background 0.2s, color 0.2s;
+      font-size: 0.92rem;
+      font-weight: bold;
+      border-radius: 4px;
+      letter-spacing: 0.1em;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
     }
-    #lang-bar button:hover,
+    #lang-bar button:hover {
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.6);
+      color: #fff;
+    }
     #lang-bar button.active {
-      background: #fff;
-      color: #2c2c2c;
-      border-color: #fff;
+      background: #e8c84a;
+      border-color: #e8c84a;
+      color: #0f3460;
     }
 
     /* ── Header ── */
@@ -184,7 +201,7 @@
       background: #1a1a2e;
       color: #fff;
       border-radius: 6px;
-      padding: 32px 28px;
+      padding: 36px 28px;
       text-align: center;
       margin-top: 50px;
     }
@@ -195,6 +212,24 @@
       margin-bottom: 12px;
     }
     .cta-box p { color: #b0b8d0; margin-bottom: 0; }
+    .btn-donate {
+      display: inline-block;
+      margin-top: 28px;
+      background: #e8c84a;
+      color: #1a1a2e;
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: bold;
+      letter-spacing: 0.06em;
+      padding: 16px 48px;
+      border-radius: 5px;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-donate:hover {
+      background: #f0d660;
+      color: #1a1a2e;
+      transform: translateY(-2px);
+    }
 
     /* ── Transparency note ── */
     .transparency {
@@ -205,6 +240,51 @@
       margin-top: 32px;
       font-size: 0.93rem;
       color: #4a4030;
+    }
+
+    /* ── Floating CTA ── */
+    #float-cta {
+      position: fixed;
+      right: 20px;
+      bottom: 32px;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    #float-cta.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+    }
+    #float-cta a {
+      display: block;
+      background: #e8c84a;
+      color: #1a1a2e;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      padding: 13px 22px;
+      border-radius: 5px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.28);
+      transition: background 0.15s, transform 0.1s;
+      text-align: center;
+      white-space: nowrap;
+    }
+    #float-cta a:hover {
+      background: #f0d660;
+      transform: translateY(-2px);
+    }
+    #float-cta .float-url {
+      font-size: 0.72rem;
+      color: #666;
+      text-align: center;
+    }
+    @media (max-width: 500px) {
+      #float-cta { right: 12px; bottom: 16px; }
     }
 
     /* ── Footer ── */
@@ -236,8 +316,23 @@
 </head>
 <body class="lang-pl">
 
+<!-- ── Floating donate CTA ── -->
+<div id="float-cta" class="hidden">
+  <a href="https://zrzutka.pl/4y66vs" target="_blank" rel="noopener">
+    <span data-lang="pl">Wpłać na zrzutka.pl</span>
+    <span data-lang="en">Donate via zrzutka.pl</span>
+    <span data-lang="de">Spenden via zrzutka.pl</span>
+  </a>
+  <span class="float-url">zrzutka.pl/4y66vs</span>
+</div>
+
 <!-- ── Language selector ── -->
 <div id="lang-bar">
+  <span class="lang-label">
+    <span data-lang="pl">Język</span>
+    <span data-lang="en">Language</span>
+    <span data-lang="de">Sprache</span>
+  </span>
   <button onclick="setLang('pl')" id="btn-pl" class="active">PL</button>
   <button onclick="setLang('en')" id="btn-en">ENG</button>
   <button onclick="setLang('de')" id="btn-de">DE</button>
@@ -544,6 +639,12 @@
       <span data-lang="en">Donate or share. Every coin and every share matters.</span>
       <span data-lang="de">Spenden oder teilen. Jeder Cent und jedes Teilen zählt.</span>
     </p>
+    <a href="https://zrzutka.pl/4y66vs" target="_blank" rel="noopener" class="btn-donate">
+      <span data-lang="pl">Wpłać na zrzutka.pl</span>
+      <span data-lang="en">Donate via zrzutka.pl</span>
+      <span data-lang="de">Spenden via zrzutka.pl</span>
+    </a>
+    <p style="margin-top:14px; font-size:0.82rem; color:#5a7090;">zrzutka.pl/4y66vs</p>
   </div>
 
 </main>
@@ -562,6 +663,29 @@
     });
     document.documentElement.lang = lang;
   }
+
+  // Show float CTA only when header is out of view AND bottom CTA is not yet visible
+  var floatCta = document.getElementById('float-cta');
+  var headerVisible = true;
+  var bottomVisible = false;
+
+  function updateFloat() {
+    if (!headerVisible && !bottomVisible) {
+      floatCta.classList.remove('hidden');
+    } else {
+      floatCta.classList.add('hidden');
+    }
+  }
+
+  new IntersectionObserver(function(entries) {
+    headerVisible = entries[0].isIntersecting;
+    updateFloat();
+  }, { threshold: 0 }).observe(document.querySelector('header'));
+
+  new IntersectionObserver(function(entries) {
+    bottomVisible = entries[0].isIntersecting;
+    updateFloat();
+  }, { threshold: 0.1 }).observe(document.querySelector('.cta-box'));
 </script>
 </body>
 </html>
