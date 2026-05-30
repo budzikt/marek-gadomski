@@ -113,6 +113,8 @@ a { color: #1a5276; }
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 12px;
   margin-top: 16px;
+  justify-items: center;
+  justify-content: center;
 }
 .photo-grid img {
   width: 100%;
@@ -192,6 +194,13 @@ a { color: #1a5276; }
   text-align: right;
   white-space: nowrap;
   color: #333;
+}
+
+/* ── Zrzutka widget ── */
+.zrzutka-widget {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
 
 /* ── CTA ── */
