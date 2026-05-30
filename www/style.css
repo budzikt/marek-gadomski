@@ -1,0 +1,298 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #f9f6f1;
+  color: #2c2c2c;
+  line-height: 1.75;
+}
+
+/* ── Language bar ── */
+#lang-bar {
+  background: #0f3460;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+#lang-bar .lang-label {
+  color: #8ab0d0;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-right: 6px;
+}
+#lang-bar button {
+  background: rgba(255,255,255,0.08);
+  border: 2px solid rgba(255,255,255,0.25);
+  color: #d0e4f5;
+  padding: 6px 18px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: bold;
+  border-radius: 4px;
+  letter-spacing: 0.1em;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+#lang-bar button:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.6);
+  color: #fff;
+}
+#lang-bar button.active {
+  background: #e8c84a !important;
+  border-color: #e8c84a !important;
+  color: #0f3460 !important;
+}
+
+/* ── Header ── */
+header {
+  background: #1a1a2e;
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px 40px;
+}
+header h1 {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: normal;
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+}
+header p.subtitle {
+  font-size: 1.05rem;
+  color: #b0b8d0;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ── Layout ── */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+section {
+  margin-top: 50px;
+}
+
+h2 {
+  font-size: 1.35rem;
+  font-weight: normal;
+  color: #1a1a2e;
+  border-bottom: 2px solid #c8b89a;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+p { margin-bottom: 16px; }
+p:last-child { margin-bottom: 0; }
+
+a { color: #1a5276; }
+
+/* ── Narrator note (author voice) ── */
+.narrator {
+  background: #eee8dc;
+  border-left: 4px solid #c8b89a;
+  padding: 18px 22px;
+  border-radius: 0 4px 4px 0;
+  font-style: italic;
+  color: #4a4030;
+  margin-bottom: 32px;
+}
+
+/* ── Photos ── */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.photo-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+.photo-caption {
+  font-size: 0.82rem;
+  color: #666;
+  margin-top: 6px;
+  text-align: center;
+}
+.photo-single img {
+  max-width: 380px;
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
+
+.section-good { background: #f0f7f0; border-radius: 6px; padding: 20px 22px; }
+.section-hurt { background: #fdf4f4; border-radius: 6px; padding: 20px 22px; }
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+.badge-good { background: #c8e6c9; color: #256029; }
+.badge-hurt { background: #ffcdd2; color: #7b1c1c; }
+
+/* ── Cost box ── */
+.cost-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 16px;
+}
+.cost-box table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.96rem;
+}
+.cost-box th {
+  background: #1a1a2e;
+  color: #fff;
+  text-align: left;
+  padding: 10px 16px;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+}
+.cost-box td {
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+.cost-box tr:last-child td { border-bottom: none; }
+.cost-box tr.total td {
+  font-weight: bold;
+  background: #fafafa;
+  color: #1a1a2e;
+}
+.cost-box td.amount {
+  text-align: right;
+  white-space: nowrap;
+  color: #333;
+}
+
+/* ── CTA ── */
+.cta-box {
+  background: #1a1a2e;
+  color: #fff;
+  border-radius: 6px;
+  padding: 36px 28px;
+  text-align: center;
+  margin-top: 50px;
+}
+.cta-box h2 {
+  color: #fff;
+  border-color: #4a6080;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+.cta-box p { color: #b0b8d0; margin-bottom: 0; }
+.btn-donate {
+  display: inline-block;
+  margin-top: 28px;
+  background: #e8c84a;
+  color: #1a1a2e;
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  padding: 16px 48px;
+  border-radius: 5px;
+  transition: background 0.15s, transform 0.1s;
+}
+.btn-donate:hover {
+  background: #f0d660;
+  color: #1a1a2e;
+  transform: translateY(-2px);
+}
+
+/* ── Transparency note ── */
+.transparency {
+  background: #fff;
+  border: 1px solid #c8b89a;
+  border-radius: 6px;
+  padding: 18px 22px;
+  margin-top: 32px;
+  font-size: 0.93rem;
+  color: #4a4030;
+}
+
+/* ── Floating CTA ── */
+#float-cta {
+  position: fixed;
+  right: 20px;
+  bottom: 32px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.3s, transform 0.3s;
+}
+#float-cta.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+}
+#float-cta a {
+  display: block;
+  background: #e8c84a;
+  color: #1a1a2e;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  padding: 13px 22px;
+  border-radius: 5px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.28);
+  transition: background 0.15s, transform 0.1s;
+  text-align: center;
+  white-space: nowrap;
+}
+#float-cta a:hover {
+  background: #f0d660;
+  transform: translateY(-2px);
+}
+#float-cta .float-url {
+  font-size: 0.72rem;
+  color: #666;
+  text-align: center;
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 0.8rem;
+  color: #999;
+  border-top: 1px solid #ddd;
+  margin-top: 60px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 500px) {
+  header { padding: 36px 16px 28px; }
+  .photo-grid { grid-template-columns: 1fr 1fr; }
+  .photo-grid img { height: 160px; }
+  #float-cta { right: 12px; bottom: 16px; }
+}
+
+/* Language visibility is handled entirely by JS (inline styles) — framework-safe */
