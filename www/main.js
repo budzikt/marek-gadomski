@@ -40,3 +40,4 @@ new IntersectionObserver(function(entries) {
 
 // ── Init on page load ──
 setLang('pl');
+GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true });
