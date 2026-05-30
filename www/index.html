@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomoc dla Marka Gadomskiego / Help for Marek / Hilfe für Marek</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #f9f6f1;
+      color: #2c2c2c;
+      line-height: 1.75;
+    }
+
+    /* ── Language bar ── */
+    #lang-bar {
+      background: #2c2c2c;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    #lang-bar button {
+      background: transparent;
+      border: 1px solid #888;
+      color: #ccc;
+      padding: 4px 14px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      border-radius: 3px;
+      letter-spacing: 0.05em;
+      transition: background 0.2s, color 0.2s;
+    }
+    #lang-bar button:hover,
+    #lang-bar button.active {
+      background: #fff;
+      color: #2c2c2c;
+      border-color: #fff;
+    }
+
+    /* ── Header ── */
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px 40px;
+    }
+    header h1 {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: normal;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+    header p.subtitle {
+      font-size: 1.05rem;
+      color: #b0b8d0;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── Layout ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    section {
+      margin-top: 50px;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: normal;
+      color: #1a1a2e;
+      border-bottom: 2px solid #c8b89a;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    p { margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+
+    a { color: #1a5276; }
+
+    /* ── Narrator note (author voice) ── */
+    .narrator {
+      background: #eee8dc;
+      border-left: 4px solid #c8b89a;
+      padding: 18px 22px;
+      border-radius: 0 4px 4px 0;
+      font-style: italic;
+      color: #4a4030;
+      margin-bottom: 32px;
+    }
+
+    /* ── Photos ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .photo-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+    .photo-caption {
+      font-size: 0.82rem;
+      color: #666;
+      margin-top: 6px;
+      text-align: center;
+    }
+    .photo-single img {
+      max-width: 380px;
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .section-good { background: #f0f7f0; border-radius: 6px; padding: 20px 22px; }
+    .section-hurt { background: #fdf4f4; border-radius: 6px; padding: 20px 22px; }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 3px;
+      margin-bottom: 12px;
+    }
+    .badge-good { background: #c8e6c9; color: #256029; }
+    .badge-hurt { background: #ffcdd2; color: #7b1c1c; }
+
+    /* ── Cost box ── */
+    .cost-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 16px;
+    }
+    .cost-box table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.96rem;
+    }
+    .cost-box th {
+      background: #1a1a2e;
+      color: #fff;
+      text-align: left;
+      padding: 10px 16px;
+      font-weight: normal;
+      letter-spacing: 0.04em;
+    }
+    .cost-box td {
+      padding: 10px 16px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+    .cost-box tr:last-child td { border-bottom: none; }
+    .cost-box tr.total td {
+      font-weight: bold;
+      background: #fafafa;
+      color: #1a1a2e;
+    }
+    .cost-box td.amount {
+      text-align: right;
+      white-space: nowrap;
+      color: #333;
+    }
+
+    /* ── CTA ── */
+    .cta-box {
+      background: #1a1a2e;
+      color: #fff;
+      border-radius: 6px;
+      padding: 32px 28px;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .cta-box h2 {
+      color: #fff;
+      border-color: #4a6080;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .cta-box p { color: #b0b8d0; margin-bottom: 0; }
+
+    /* ── Transparency note ── */
+    .transparency {
+      background: #fff;
+      border: 1px solid #c8b89a;
+      border-radius: 6px;
+      padding: 18px 22px;
+      margin-top: 32px;
+      font-size: 0.93rem;
+      color: #4a4030;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.8rem;
+      color: #999;
+      border-top: 1px solid #ddd;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 500px) {
+      header { padding: 36px 16px 28px; }
+      .photo-grid { grid-template-columns: 1fr 1fr; }
+      .photo-grid img { height: 160px; }
+    }
+
+    /* language visibility */
+    [data-lang] { display: none; }
+    .lang-pl [data-lang="pl"],
+    .lang-en [data-lang="en"],
+    .lang-de [data-lang="de"] { display: block; }
+    span[data-lang] { display: none; }
+    .lang-pl span[data-lang="pl"],
+    .lang-en span[data-lang="en"],
+    .lang-de span[data-lang="de"] { display: inline; }
+  </style>
+</head>
+<body class="lang-pl">
+
+<!-- ── Language selector ── -->
+<div id="lang-bar">
+  <button onclick="setLang('pl')" id="btn-pl" class="active">PL</button>
+  <button onclick="setLang('en')" id="btn-en">ENG</button>
+  <button onclick="setLang('de')" id="btn-de">DE</button>
+</div>
+
+<!-- ── Header ── -->
+<header>
+  <h1>
+    <span data-lang="pl">Zbiórka dla Marka Gadomskiego</span>
+    <span data-lang="en">Fundraiser for Marek Gadomski</span>
+    <span data-lang="de">Spendensammlung für Marek Gadomski</span>
+  </h1>
+  <p class="subtitle">
+    <span data-lang="pl">Ciężka padaczka lekooporna · 42 lata · Leczenie w Brnie</span>
+    <span data-lang="en">Severe drug-resistant epilepsy · Age 42 · Treatment in Brno</span>
+    <span data-lang="de">Schwere arzneimittelresistente Epilepsie · 42 Jahre · Behandlung in Brünn</span>
+  </p>
+</header>
+
+<main>
+
+  <!-- ── Author note ── -->
+  <div class="narrator">
+    <div data-lang="pl">
+      Nie jestem rodziną Marka. Nie jestem nawet bliskim znajomym jego rodziny. Byliśmy razem na nartach jak zaczynałem gimnazjum — niemal trzy dekady temu. W tę historię zostałem wciągnięty trochę przypadkiem, jako ten <em>„syn kolegi z pracy co klika w komputer i może nam pomoże."</em> Więc tu jestem.
+    </div>
+    <div data-lang="en">
+      I am not Marek's family. I am not even a close friend of his family. We skied together when I was starting middle school — almost three decades ago. I got pulled into this story somewhat by accident, as the <em>"son of a work colleague who clicks on computers and might be able to help."</em> So here I am.
+    </div>
+    <div data-lang="de">
+      Ich bin nicht Mareks Familie. Ich bin nicht einmal ein enger Bekannter seiner Familie. Wir haben zusammen Ski gefahren, als ich mit dem Gymnasium anfing — fast drei Jahrzehnte ago. In diese Geschichte wurde ich eher zufällig hineingezogen, als <em>„Sohn eines Arbeitskollegen, der am Computer klickt und vielleicht helfen kann."</em> Also bin ich hier.
+    </div>
+  </div>
+
+  <!-- ── Marek's story ── -->
+  <section>
+    <h2>
+      <span data-lang="pl">Historia Marka</span>
+      <span data-lang="en">Marek's Story</span>
+      <span data-lang="de">Mareks Geschichte</span>
+    </h2>
+
+    <div data-lang="pl">
+      <p>Marek Gadomski ma 42 lata i od lat choruje na ciężką padaczkę lekooporną. W dzieciństwie wykryto u niego guz mózgu. Przeszedł operację, później wszczepiono mu stymulator nerwu błędnego (VNS), a w 2023 roku wykonano kolejną operację. Mimo tego napady wróciły.</p>
+      <p>Ostatnie 6 lat to wyraźne pogorszenie. Marek ma liczne napady, często z nagłymi upadkami — upadek jest początkiem ataku, a nie jego skutkiem. Każde wyjście, każde przemieszczanie się, każdy zwykły dzień wymaga obecności drugiej osoby. Marek nie jest samodzielny. Stał się w dużej mierze więźniem własnego mieszkania.</p>
+      <p>Wcześniej był aktywny, miał swoje życie, znajomych, zainteresowania, funkcjonował, wyjeżdżał za granicę. Profil na Facebooku pokazuje jak wyglądało jego życie zanim choroba zaatakowała z zwielokrotnioną siłą — i krótkie chwile, gdy odpuszcza: <a href="https://www.facebook.com/Rhangdo" target="_blank">facebook.com/Rhangdo</a></p>
+      <p>Marek jest dziś pod stałą, domową opieką rodziców. Jego mama ma 70 lat, ojciec ponad 80. Robią dla niego wszystko, co mogą — ale są w wieku, w którym czas ma znaczenie. To ich ostatni realny moment, żeby walczyć o leczenie syna. Jeśli się nie uda i jeśli rodziców zabraknie, Marek najpewniej nie będzie w stanie żyć samodzielnie. Realnym scenariuszem stanie się placówka opiekuńcza — dla sprawnego umysłowo dorosłego mężczyzny.</p>
+      <p>Lekarze nie pozostawiają złudzeń: konsekwencja częstotliwości ataków i niekontrolowanych upadków twarzą lub potylicą o podłoże jest prosta — każdy upadek może być ostatnim.</p>
+    </div>
+    <div data-lang="en">
+      <p>Marek Gadomski is 42 years old and has been suffering from severe drug-resistant epilepsy for years. A brain tumor was detected in childhood. He underwent surgery, later had a vagus nerve stimulator (VNS) implanted, and in 2023 another surgery was performed. Despite this, the seizures returned.</p>
+      <p>The last 6 years have seen a clear deterioration. Marek has numerous seizures, often with sudden falls — the fall is the beginning of the attack, not its result. Every outing, every movement, every ordinary day requires the presence of another person. Marek is not independent. He has largely become a prisoner in his own apartment.</p>
+      <p>Previously he was active, had his own life, friends, interests, traveled abroad. His Facebook profile shows what life looked like before the disease attacked with multiplied force — and the brief moments when it relents: <a href="https://www.facebook.com/Rhangdo" target="_blank">facebook.com/Rhangdo</a></p>
+      <p>Today Marek is under constant home care by his parents. His mother is 70, his father over 80. They do everything they can — but they are at an age where time matters. This is their last realistic chance to fight for treatment for their son. If it doesn't work and if the parents are no longer around, Marek will most likely be unable to live independently. An assisted living facility becomes a real scenario — for a fully intellectually capable adult man.</p>
+      <p>Doctors leave no illusions: the consequence of the frequency of attacks and uncontrolled falls directly onto the face or back of the head is straightforward — every fall could be the last.</p>
+    </div>
+    <div data-lang="de">
+      <p>Marek Gadomski ist 42 Jahre alt und leidet seit Jahren an schwerer arzneimittelresistenter Epilepsie. In der Kindheit wurde bei ihm ein Hirntumor festgestellt. Er wurde operiert, später wurde ihm ein Vagusnervstimulator (VNS) implantiert, und 2023 wurde eine weitere Operation durchgeführt. Trotzdem kehrten die Anfälle zurück.</p>
+      <p>Die letzten 6 Jahre zeigen eine deutliche Verschlechterung. Marek hat zahlreiche Anfälle, oft mit plötzlichen Stürzen — der Sturz ist der Beginn des Anfalls, nicht seine Folge. Jeder Ausgang, jede Bewegung, jeder gewöhnliche Tag erfordert die Anwesenheit einer anderen Person. Marek ist nicht selbstständig. Er ist weitgehend ein Gefangener in seiner eigenen Wohnung geworden.</p>
+      <p>Früher war er aktiv, hatte sein eigenes Leben, Freunde, Interessen, reiste ins Ausland. Sein Facebook-Profil zeigt, wie sein Leben aussah, bevor die Krankheit mit vervielfachter Kraft angriff — und die kurzen Momente, wenn sie nachlässt: <a href="https://www.facebook.com/Rhangdo" target="_blank">facebook.com/Rhangdo</a></p>
+      <p>Heute steht Marek unter ständiger häuslicher Pflege seiner Eltern. Seine Mutter ist 70 Jahre alt, sein Vater über 80. Sie tun alles, was sie können — aber sie sind in einem Alter, in dem die Zeit eine Rolle spielt. Dies ist ihre letzte realistische Chance, für die Behandlung ihres Sohnes zu kämpfen. Wenn es nicht klappt und die Eltern nicht mehr da sind, wird Marek höchstwahrscheinlich nicht selbstständig leben können. Eine Pflegeeinrichtung wird zum realen Szenario — für einen geistig vollkommen fähigen erwachsenen Mann.</p>
+      <p>Auch die Ärzte lassen keine Illusionen: Die Konsequenz der Anfallshäufigkeit und der unkontrollierten Stürze direkt auf Gesicht oder Hinterkopf ist einfach — jeder Sturz könnte der letzte sein.</p>
+    </div>
+  </section>
+
+  <!-- ── Photos: good condition ── -->
+  <section>
+    <h2>
+      <span data-lang="pl">Marek — kiedy choroba odpuszcza</span>
+      <span data-lang="en">Marek — when the disease relents</span>
+      <span data-lang="de">Marek — wenn die Krankheit nachlässt</span>
+    </h2>
+    <div class="section-good">
+      <span class="badge badge-good">
+        <span data-lang="pl">Dobry okres</span>
+        <span data-lang="en">Good period</span>
+        <span data-lang="de">Gute Phase</span>
+      </span>
+      <div class="photo-grid">
+        <div>
+          <img src="assets/good.jpeg" alt="Marek — dobry okres / good period / gute Phase">
+          <p class="photo-caption">
+            <span data-lang="pl">Marek w lepszym czasie</span>
+            <span data-lang="en">Marek in better times</span>
+            <span data-lang="de">Marek in besseren Zeiten</span>
+          </p>
+        </div>
+        <div>
+          <img src="assets/run.jpg" alt="Marek aktywny / active / aktiv">
+          <p class="photo-caption">
+            <span data-lang="pl">Aktywny Marek</span>
+            <span data-lang="en">Marek — active life</span>
+            <span data-lang="de">Marek — aktives Leben</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Photos: post-seizure ── -->
+  <section>
+    <h2>
+      <span data-lang="pl">Skutki napadów padaczkowych</span>
+      <span data-lang="en">The aftermath of epileptic seizures</span>
+      <span data-lang="de">Die Folgen epileptischer Anfälle</span>
+    </h2>
+    <div class="section-hurt">
+      <span class="badge badge-hurt">
+        <span data-lang="pl">Po ataku padaczkowym</span>
+        <span data-lang="en">Post-seizure condition</span>
+        <span data-lang="de">Zustand nach dem Anfall</span>
+      </span>
+      <div data-lang="pl">
+        <p>Poniższe zdjęcia dokumentują urazy powstałe w wyniku niekontrolowanych upadków podczas napadów. Upadek jest początkiem ataku — nie da się go przewidzieć ani zamortyzować. Każdy z tych upadków mógł zakończyć się tragicznie.</p>
+      </div>
+      <div data-lang="en">
+        <p>The photos below document injuries resulting from uncontrolled falls during seizures. The fall is the start of the attack — it cannot be predicted or cushioned. Any one of these falls could have been fatal.</p>
+      </div>
+      <div data-lang="de">
+        <p>Die folgenden Fotos dokumentieren Verletzungen, die durch unkontrollierte Stürze während der Anfälle entstanden sind. Der Sturz ist der Beginn des Anfalls — er lässt sich weder vorhersagen noch abfangen. Jeder dieser Stürze hätte tödlich enden können.</p>
+      </div>
+      <div class="photo-grid" style="margin-top: 16px;">
+        <div>
+          <img src="assets/hurt.jpeg" alt="Po napadzie / post-seizure">
+          <p class="photo-caption">
+            <span data-lang="pl">Urazy po napadzie</span>
+            <span data-lang="en">Injuries after seizure</span>
+            <span data-lang="de">Verletzungen nach dem Anfall</span>
+          </p>
+        </div>
+        <div>
+          <img src="assets/hurt1.jpeg" alt="Po napadzie / post-seizure">
+          <p class="photo-caption">
+            <span data-lang="pl">Urazy po napadzie</span>
+            <span data-lang="en">Injuries after seizure</span>
+            <span data-lang="de">Verletzungen nach dem Anfall</span>
+          </p>
+        </div>
+        <div>
+          <img src="assets/hurt2.jpeg" alt="Po napadzie / post-seizure">
+          <p class="photo-caption">
+            <span data-lang="pl">Urazy po napadzie</span>
+            <span data-lang="en">Injuries after seizure</span>
+            <span data-lang="de">Verletzungen nach dem Anfall</span>
+          </p>
+        </div>
+        <div>
+          <img src="assets/hurt3.jpeg" alt="Po napadzie / post-seizure">
+          <p class="photo-caption">
+            <span data-lang="pl">Urazy po napadzie</span>
+            <span data-lang="en">Injuries after seizure</span>
+            <span data-lang="de">Verletzungen nach dem Anfall</span>
+          </p>
+        </div>
+        <div>
+          <img src="assets/hurt4.jpeg" alt="Po napadzie / post-seizure">
+          <p class="photo-caption">
+            <span data-lang="pl">Urazy po napadzie</span>
+            <span data-lang="en">Injuries after seizure</span>
+            <span data-lang="de">Verletzungen nach dem Anfall</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The "technology barrier" story ── -->
+  <section>
+    <h2>
+      <span data-lang="pl">Jak przeskoczyliśmy „technologiczny płotek"</span>
+      <span data-lang="en">How we cleared the "technology hurdle"</span>
+      <span data-lang="de">Wie wir die „technologische Hürde" überwanden</span>
+    </h2>
+    <div data-lang="pl">
+      <p>W tej historii jest jeden bardzo gorzki element, mój główny motywator do działania. Przez długi czas problemem nie była tylko medycyna ani nawet pieniądze. Problemem była technologia.</p>
+      <p>Ojciec Marka, Edward, całe życie pracował technicznie. Jest człowiekiem konkretnym i zaradnym — ale dzisiejsza komunikacja medyczna z zagraniczną kliniką wymaga zupełnie innych narzędzi: maila, formularzy internetowych, angielskiego, tłumaczeń, umiejętności znalezienia właściwego kontaktu. Dla mnie to codzienność. Dla niego — mur, który skutecznie powstrzymał działania na kilka miesięcy.</p>
+      <p>Mój ojciec i ojciec Marka pracują razem. Temat choroby był nam znany, ale detale — niekoniecznie. Do czasu! Dostałem przez ojca odręczne notatki i papierowy list do wysłania do kliniki w Brnie z prośbą o konsultację. Tak — w 2026 roku papierowy list do przetłumaczenia.</p>
+      <p>Uporządkowałem dokumenty, przetłumaczyłem je na angielski i czeski, przygotowałem wiadomości i pomogłem skontaktować się z ośrodkiem. To, co dla mnie było pracą przy komputerze, dla rodziny Marka było ogromną barierą.</p>
+      <p><strong>Brno Epilepsy Center odpowiedziało w ciągu dwóch dni.</strong> Zadeklarowało gotowość zajęcia się przypadkiem Marka. Pojawiła się realna ścieżka dalszej diagnostyki i leczenia.</p>
+    </div>
+    <div data-lang="en">
+      <p>There is one very bitter element to this story — my main motivator for action. For a long time the problem was not only medicine or even money. The problem was technology.</p>
+      <p>Marek's father, Edward, worked in a technical field his whole life. He is a concrete, resourceful man — but today's medical communication with a foreign clinic requires entirely different tools: email, web forms, English, translations, finding the right contact. For me this is everyday life. For him — a wall that effectively stopped action for several months.</p>
+      <p>My father and Marek's father work together. The topic of Marek's illness was known to us, but the details — not so much. Until now! Via my father I received handwritten notes and a paper letter to be sent to a clinic in Brno requesting a medical consultation. Yes — in 2026, a paper letter to translate.</p>
+      <p>I organized the documents, translated them into English and Czech, prepared messages and helped establish contact with the center. What was background computer work for me had previously been an enormous barrier for Marek's family.</p>
+      <p><strong>Brno Epilepsy Center responded within two days.</strong> It declared readiness to handle Marek's case. A real path for further diagnostics and treatment emerged.</p>
+    </div>
+    <div data-lang="de">
+      <p>Es gibt ein sehr bitteres Element in dieser Geschichte — meinen Hauptmotivator zum Handeln. Lange Zeit war das Problem nicht nur die Medizin oder gar das Geld. Das Problem war Technologie.</p>
+      <p>Mareks Vater, Edward, hat sein ganzes Leben in einem technischen Bereich gearbeitet. Er ist ein konkreter, einfallsreicher Mann — aber die heutige medizinische Kommunikation mit einer ausländischen Klinik erfordert völlig andere Werkzeuge: E-Mail, Webformulare, Englisch, Übersetzungen, den richtigen Kontakt finden. Für mich ist das Alltag. Für ihn — eine Mauer, die Aktionen für mehrere Monate effektiv gestoppt hat.</p>
+      <p>Mein Vater und Mareks Vater arbeiten zusammen. Das Thema von Mareks Krankheit war uns bekannt, aber die Details — nicht so sehr. Bis jetzt! Über meinen Vater erhielt ich handgeschriebene Notizen und einen Papierbrief, der an eine Klinik in Brünn mit der Bitte um medizinische Beratung geschickt werden sollte. Ja — im Jahr 2026 einen Papierbrief zum Übersetzen.</p>
+      <p>Ich ordnete die Dokumente, übersetzte sie ins Englische und Tschechische, bereitete Nachrichten vor und half, den Kontakt mit dem Zentrum herzustellen. Was für mich Hintergrundarbeit am Computer war, war für Mareks Familie zuvor eine enorme Hürde.</p>
+      <p><strong>Das Brünn Epilepsiezentrum antwortete innerhalb von zwei Tagen.</strong> Es erklärte die Bereitschaft, Mareks Fall zu übernehmen. Ein echter Weg für weitere Diagnostik und Behandlung eröffnete sich.</p>
+    </div>
+  </section>
+
+  <!-- ── Costs ── -->
+  <section>
+    <h2>
+      <span data-lang="pl">Koszty leczenia</span>
+      <span data-lang="en">Treatment Costs</span>
+      <span data-lang="de">Behandlungskosten</span>
+    </h2>
+
+    <div data-lang="pl">
+      <p>Koszty diagnostyki, hospitalizacji i ewentualnego leczenia w Czechach są bardzo wysokie. Rodzina przeznacza całość dostępnych oszczędności, ale skala kosztów przekracza to, co są w stanie samodzielnie udźwignąć.</p>
+    </div>
+    <div data-lang="en">
+      <p>The costs of diagnostics, hospitalization, and possible treatment in the Czech Republic are very high. The family is dedicating all their available savings, but the scale of costs exceeds what they are able to bear on their own.</p>
+    </div>
+    <div data-lang="de">
+      <p>Die Kosten für Diagnostik, Krankenhausaufenthalt und mögliche Behandlung in der Tschechischen Republik sind sehr hoch. Die Familie widmet alle verfügbaren Ersparnisse, aber die Größenordnung der Kosten übersteigt, was sie alleine tragen können.</p>
+    </div>
+
+    <div class="cost-box">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <span data-lang="pl">Pozycja</span>
+              <span data-lang="en">Item</span>
+              <span data-lang="de">Posten</span>
+            </th>
+            <th style="text-align:right">EUR</th>
+            <th style="text-align:right">CZK</th>
+            <th style="text-align:right">PLN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span data-lang="pl">Całkowite koszty hospitalizacji (wycena Brno)</span>
+              <span data-lang="en">Total hospitalization costs (Brno estimate)</span>
+              <span data-lang="de">Gesamtkosten Krankenhausaufenthalt (Brünn-Schätzung)</span>
+            </td>
+            <td class="amount">50 000</td>
+            <td class="amount">1 245 000</td>
+            <td class="amount">217 000</td>
+          </tr>
+          <tr>
+            <td>
+              <span data-lang="pl">Przedpłata na zabieg i hospitalizację</span>
+              <span data-lang="en">Prepayment for procedure &amp; hospitalization</span>
+              <span data-lang="de">Vorauszahlung für Eingriff &amp; Krankenhausaufenthalt</span>
+            </td>
+            <td class="amount">10 800</td>
+            <td class="amount">270 000</td>
+            <td class="amount">47 000</td>
+          </tr>
+          <tr>
+            <td>
+              <span data-lang="pl">Zakwaterowanie rodziców (2–3 tygodnie, szacunek)</span>
+              <span data-lang="en">Parents' accommodation (2–3 weeks, estimate)</span>
+              <span data-lang="de">Unterkunft der Eltern (2–3 Wochen, Schätzung)</span>
+            </td>
+            <td class="amount">—</td>
+            <td class="amount">—</td>
+            <td class="amount">
+              <span data-lang="pl">do ustalenia</span>
+              <span data-lang="en">TBD</span>
+              <span data-lang="de">offen</span>
+            </td>
+          </tr>
+          <tr class="total">
+            <td>
+              <span data-lang="pl">Cel zbiórki</span>
+              <span data-lang="en">Fundraising goal</span>
+              <span data-lang="de">Spendenziel</span>
+            </td>
+            <td class="amount">50 000</td>
+            <td class="amount">1 245 000</td>
+            <td class="amount">217 000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="transparency">
+      <strong>
+        <span data-lang="pl">Transparentność</span>
+        <span data-lang="en">Transparency</span>
+        <span data-lang="de">Transparenz</span>
+      </strong><br>
+      <span data-lang="pl">Rodzina deklaruje pełną transparentność. Każdy większy koszt będzie możliwy do rozliczenia rachunkiem, fakturą lub potwierdzeniem płatności.</span>
+      <span data-lang="en">The family declares full transparency. Every major cost will be verifiable with a receipt, invoice, or payment confirmation.</span>
+      <span data-lang="de">Die Familie erklärt volle Transparenz. Jede größere Ausgabe ist mit Quittung, Rechnung oder Zahlungsnachweis nachvollziehbar.</span>
+    </div>
+  </section>
+
+  <!-- ── Personal note + CTA ── -->
+  <div class="cta-box">
+    <h2>
+      <span data-lang="pl">Proszę o pomoc</span>
+      <span data-lang="en">Please help</span>
+      <span data-lang="de">Bitte helfen Sie</span>
+    </h2>
+    <p>
+      <span data-lang="pl">Wszyscy zdajemy sobie sprawę z tego, że Marek nie jest ślicznym rumianym bobsem, na widok którego same otwierają się portfele. Jest dorosłym człowiekiem ze swoją historią i godnym życiem przed chorobą. To nie zmienia faktu, że potrzebuje pomocy teraz — i że czas naprawdę gra tutaj rolę.</span>
+      <span data-lang="en">We all realize that Marek is not a cute, rosy baby at the sight of whom wallets open by themselves. He is an adult with his own history and a dignified life before the illness. That doesn't change the fact that he needs help now — and that time truly matters here.</span>
+      <span data-lang="de">Wir alle wissen, dass Marek kein süßes, rosiges Baby ist, bei dessen Anblick sich Geldbörsen von selbst öffnen. Er ist ein Erwachsener mit seiner eigenen Geschichte und einem würdigen Leben vor der Krankheit. Das ändert nichts daran, dass er jetzt Hilfe braucht — und dass die Zeit hier wirklich eine Rolle spielt.</span>
+    </p>
+    <p style="margin-top:18px; font-size: 1.05rem; color: #e0e8ff;">
+      <span data-lang="pl">Wpłać lub udostępnij. Każda złotówka i każde udostępnienie ma znaczenie.</span>
+      <span data-lang="en">Donate or share. Every coin and every share matters.</span>
+      <span data-lang="de">Spenden oder teilen. Jeder Cent und jedes Teilen zählt.</span>
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  <span data-lang="pl">Zbiórka na leczenie Marka Gadomskiego · Brno Epilepsy Center · 2026</span>
+  <span data-lang="en">Fundraiser for Marek Gadomski's treatment · Brno Epilepsy Center · 2026</span>
+  <span data-lang="de">Spendensammlung für die Behandlung von Marek Gadomski · Brünn Epilepsiezentrum · 2026</span>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('#lang-bar button').forEach(function(b) {
+      b.classList.toggle('active', b.id === 'btn-' + lang);
+    });
+    document.documentElement.lang = lang;
+  }
+</script>
+</body>
+</html>
