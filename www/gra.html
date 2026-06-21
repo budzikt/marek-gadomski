@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz pierwszej pomocy / First-Aid Quiz / Erste-Hilfe-Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="lang-pl">
+
+<!-- ── Floating donate CTA ── -->
+<div id="float-cta" class="hidden">
+  <a href="https://zrzutka.pl/4y66vs" target="_blank" rel="noopener">
+    <img src="assets/img_zrzutka.svg" alt="zrzutka.pl" class="btn-donate-logo">
+    <span data-lang="pl">Wpłać na zrzutka.pl</span>
+    <span data-lang="en">Donate via zrzutka.pl</span>
+    <span data-lang="de">Spenden via zrzutka.pl</span>
+  </a>
+  <span class="float-url">zrzutka.pl/4y66vs</span>
+</div>
+
+<!-- ── Language selector ── -->
+<div id="lang-bar">
+  <span class="lang-label">
+    <span data-lang="pl">Język</span>
+    <span data-lang="en">Language</span>
+    <span data-lang="de">Sprache</span>
+  </span>
+  <button onclick="setLang('pl')" id="btn-pl">PL</button>
+  <button onclick="setLang('en')" id="btn-en">ENG</button>
+  <button onclick="setLang('de')" id="btn-de">DE</button>
+</div>
+
+<!-- ── Site navigation ── -->
+<nav id="site-nav">
+  <a href="index.html">
+    <span data-lang="pl">Historia Marka</span>
+    <span data-lang="en">Marek's Story</span>
+    <span data-lang="de">Mareks Geschichte</span>
+  </a>
+  <a href="info.html">
+    <span data-lang="pl">O padaczce i pierwsza pomoc</span>
+    <span data-lang="en">Epilepsy &amp; First Aid</span>
+    <span data-lang="de">Epilepsie &amp; Erste Hilfe</span>
+  </a>
+  <a href="gra.html" class="current">
+    <span data-lang="pl">Quiz pierwszej pomocy</span>
+    <span data-lang="en">First-Aid Quiz</span>
+    <span data-lang="de">Erste-Hilfe-Quiz</span>
+  </a>
+</nav>
+
+<!-- ── Header ── -->
+<header>
+  <h1>
+    <span data-lang="pl">Quiz pierwszej pomocy</span>
+    <span data-lang="en">First-Aid Quiz</span>
+    <span data-lang="de">Erste-Hilfe-Quiz</span>
+  </h1>
+  <p class="subtitle">
+    <span data-lang="pl">Gra, w której każda dobra odpowiedź to wiedza, która komuś — może komuś jak Marek — pomoże</span>
+    <span data-lang="en">A game where every correct answer is knowledge that could help someone — maybe someone like Marek</span>
+    <span data-lang="de">Ein Spiel, bei dem jede richtige Antwort Wissen ist, das jemandem helfen kann — vielleicht jemandem wie Marek</span>
+  </p>
+</header>
+
+<main>
+
+  <!-- Photosensitivity reassurance -->
+  <div class="safe-notice">
+    <span class="dot" aria-hidden="true"></span>
+    <span>
+      <span data-lang="pl"><strong>Bezpieczne dla wzroku.</strong> Ta strona celowo nie zawiera migających, pulsujących ani gwałtownie zmieniających się elementów.</span>
+      <span data-lang="en"><strong>Photosensitivity-safe.</strong> This page deliberately contains no flashing, strobing, or rapidly changing visuals.</span>
+      <span data-lang="de"><strong>Augenfreundlich.</strong> Diese Seite enthält bewusst keine blinkenden, pulsierenden oder sich schnell ändernden Elemente.</span>
+    </span>
+  </div>
+
+  <!-- Game switcher -->
+  <div class="game-tabs">
+    <button id="tab-quiz" class="active" onclick="showGame('quiz')">
+      <span data-lang="pl">Quiz pierwszej pomocy</span>
+      <span data-lang="en">First-Aid Quiz</span>
+      <span data-lang="de">Erste-Hilfe-Quiz</span>
+    </button>
+    <button id="tab-memory" onclick="showGame('memory')">
+      <span data-lang="pl">Gra pamięciowa</span>
+      <span data-lang="en">Memory Match</span>
+      <span data-lang="de">Memory-Spiel</span>
+    </button>
+  </div>
+
+  <!-- Quiz panel (rendered by game.js) -->
+  <section id="panel-quiz" class="game-panel active">
+    <div id="quiz-root"></div>
+  </section>
+
+  <!-- Memory panel (rendered by game.js) -->
+  <section id="panel-memory" class="game-panel">
+    <div class="memory-meta">
+      <span>
+        <span data-lang="pl">Dopasowane pary:</span>
+        <span data-lang="en">Pairs matched:</span>
+        <span data-lang="de">Gefundene Paare:</span>
+        <strong id="mem-pairs">0/8</strong>
+        &nbsp;·&nbsp;
+        <span data-lang="pl">Ruchy:</span>
+        <span data-lang="en">Moves:</span>
+        <span data-lang="de">Züge:</span>
+        <strong id="mem-moves">0</strong>
+      </span>
+      <button class="btn-restart" onclick="restartMemory()">
+        <span data-lang="pl">Od nowa</span>
+        <span data-lang="en">Restart</span>
+        <span data-lang="de">Neu starten</span>
+      </button>
+    </div>
+    <div id="memory-grid" class="memory-grid"></div>
+    <div id="mem-win" class="mem-win">
+      <p>
+        <span data-lang="pl"><strong>Gotowe!</strong> Dziękujemy za chwilę uwagi. Jeśli możesz — zostaw też ślad u Marka.</span>
+        <span data-lang="en"><strong>Done!</strong> Thank you for a moment of attention. If you can — leave a mark with Marek too.</span>
+        <span data-lang="de"><strong>Geschafft!</strong> Danke für einen Moment Aufmerksamkeit. Wenn du kannst — hinterlasse auch bei Marek eine Spur.</span>
+      </p>
+      <a href="https://zrzutka.pl/4y66vs" target="_blank" rel="noopener" class="btn-donate" style="margin-top:10px;">
+        <img src="assets/img_zrzutka.svg" alt="zrzutka.pl" class="btn-donate-logo">
+        <span data-lang="pl">Wpłać na zrzutka.pl</span>
+        <span data-lang="en">Donate via zrzutka.pl</span>
+        <span data-lang="de">Spenden via zrzutka.pl</span>
+      </a>
+    </div>
+  </section>
+
+  <p style="margin-top:30px;">
+    <a href="info.html" class="back-link">
+      <span data-lang="pl">← Wróć do informacji o padaczce i pierwszej pomocy</span>
+      <span data-lang="en">← Back to epilepsy &amp; first-aid info</span>
+      <span data-lang="de">← Zurück zu Epilepsie- &amp; Erste-Hilfe-Infos</span>
+    </a>
+  </p>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h2>
+      <span data-lang="pl">Wiedza pomaga. Wpłata pomaga konkretnie.</span>
+      <span data-lang="en">Knowledge helps. A donation helps concretely.</span>
+      <span data-lang="de">Wissen hilft. Eine Spende hilft konkret.</span>
+    </h2>
+    <p>
+      <span data-lang="pl">Dziękujemy, że dotarłeś aż tutaj. Marek i jego rodzina walczą o leczenie w Brnie — każda złotówka się liczy.</span>
+      <span data-lang="en">Thank you for making it this far. Marek and his family are fighting for treatment in Brno — every coin counts.</span>
+      <span data-lang="de">Danke, dass du bis hierher gekommen bist. Marek und seine Familie kämpfen um eine Behandlung in Brünn — jeder Cent zählt.</span>
+    </p>
+    <a href="https://zrzutka.pl/4y66vs" target="_blank" rel="noopener" class="btn-donate">
+      <img src="assets/img_zrzutka.svg" alt="zrzutka.pl" class="btn-donate-logo">
+      <span data-lang="pl">Wpłać na zrzutka.pl</span>
+      <span data-lang="en">Donate via zrzutka.pl</span>
+      <span data-lang="de">Spenden via zrzutka.pl</span>
+    </a>
+    <p style="margin-top:14px; font-size:0.82rem; color:#5a7090;">zrzutka.pl/4y66vs</p>
+  </div>
+
+</main>
+
+<footer>
+  <span data-lang="pl">Quiz edukacyjny — nie zastępuje szkolenia z pierwszej pomocy · Zbiórka dla Marka Gadomskiego · 2026</span>
+  <span data-lang="en">Educational quiz — not a substitute for first-aid training · Fundraiser for Marek Gadomski · 2026</span>
+  <span data-lang="de">Lernquiz — kein Ersatz für eine Erste-Hilfe-Ausbildung · Spendensammlung für Marek Gadomski · 2026</span>
+</footer>
+
+<script src="main.js" defer></script>
+<script src="game.js" defer></script>
+</body>
+</html>

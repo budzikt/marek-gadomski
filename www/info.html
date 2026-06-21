@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O padaczce i pierwsza pomoc / Epilepsy & First Aid / Epilepsie & Erste Hilfe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="lang-pl">
+
+<!-- ── Floating donate CTA ── -->
+<div id="float-cta" class="hidden">
+  <a href="https://zrzutka.pl/4y66vs" target="_blank" rel="noopener">
+    <img src="assets/img_zrzutka.svg" alt="zrzutka.pl" class="btn-donate-logo">
+    <span data-lang="pl">Wpłać na zrzutka.pl</span>
+    <span data-lang="en">Donate via zrzutka.pl</span>
+    <span data-lang="de">Spenden via zrzutka.pl</span>
+  </a>
+  <span class="float-url">zrzutka.pl/4y66vs</span>
+</div>
+
+<!-- ── Language selector ── -->
+<div id="lang-bar">
+  <span class="lang-label">
+    <span data-lang="pl">Język</span>
+    <span data-lang="en">Language</span>
+    <span data-lang="de">Sprache</span>
+  </span>
+  <button onclick="setLang('pl')" id="btn-pl">PL</button>
+  <button onclick="setLang('en')" id="btn-en">ENG</button>
+  <button onclick="setLang('de')" id="btn-de">DE</button>
+</div>
+
+<!-- ── Site navigation ── -->
+<nav id="site-nav">
+  <a href="index.html">
+    <span data-lang="pl">Historia Marka</span>
+    <span data-lang="en">Marek's Story</span>
+    <span data-lang="de">Mareks Geschichte</span>
+  </a>
+  <a href="info.html" class="current">
+    <span data-lang="pl">O padaczce i pierwsza pomoc</span>
+    <span data-lang="en">Epilepsy &amp; First Aid</span>
+    <span data-lang="de">Epilepsie &amp; Erste Hilfe</span>
+  </a>
+  <a href="gra.html">
+    <span data-lang="pl">Quiz pierwszej pomocy</span>
+    <span data-lang="en">First-Aid Quiz</span>
+    <span data-lang="de">Erste-Hilfe-Quiz</span>
+  </a>
+</nav>
+
+<!-- ── Header ── -->
+<header>
+  <h1>
+    <span data-lang="pl">O padaczce i pierwsza pomoc</span>
+    <span data-lang="en">About Epilepsy &amp; First Aid</span>
+    <span data-lang="de">Über Epilepsie &amp; Erste Hilfe</span>
+  </h1>
+  <p class="subtitle">
+    <span data-lang="pl">Trochę kontekstu do historii Marka — i wiedza, która kiedyś może komuś uratować życie</span>
+    <span data-lang="en">Some context for Marek's story — and knowledge that might one day save a life</span>
+    <span data-lang="de">Etwas Kontext zu Mareks Geschichte — und Wissen, das eines Tages ein Leben retten kann</span>
+  </p>
+</header>
+
+<main>
+
+  <div class="lead">
+    <span data-lang="pl">Ta strona nie zastępuje porady lekarskiej. Powstała, żeby przybliżyć, z czym mierzy się Marek, i pokazać, jak zachować się, gdy ktoś obok ma napad padaczkowy. To wiedza, którą warto mieć — także jeśli nie zdecydujesz się wpłacić.</span>
+    <span data-lang="en">This page does not replace medical advice. It exists to explain what Marek is up against, and to show what to do when someone near you has a seizure. It is knowledge worth having — even if you decide not to donate.</span>
+    <span data-lang="de">Diese Seite ersetzt keine ärztliche Beratung. Sie soll erklären, womit Marek konfrontiert ist, und zeigen, wie man sich verhält, wenn jemand neben dir einen Anfall hat. Es ist Wissen, das sich lohnt — auch wenn du dich gegen eine Spende entscheidest.</span>
+  </div>
+
+  <!-- Drug-resistant epilepsy -->
+  <section>
+    <h2>
+      <span data-lang="pl">Czym jest padaczka lekooporna?</span>
+      <span data-lang="en">What is drug-resistant epilepsy?</span>
+      <span data-lang="de">Was ist arzneimittelresistente Epilepsie?</span>
+    </h2>
+    <div data-lang="pl">
+      <p>O padaczce lekoopornej (inaczej: opornej na leczenie) mówimy, gdy mimo prawidłowo dobranych i tolerowanych dwóch leków przeciwpadaczkowych nie udaje się uzyskać trwałego ustąpienia napadów. Dotyczy to około jednej trzeciej osób chorych na padaczkę.</p>
+      <p>Dla tych osób kolejne tabletki to często za mało. Wtedy rozważa się inne ścieżki: leczenie chirurgiczne, stymulację nerwu błędnego (VNS), dietę ketogenną czy specjalistyczną diagnostykę w ośrodkach takich jak Brno Epilepsy Center — i właśnie o taką drogę walczy rodzina Marka.</p>
+    </div>
+    <div data-lang="en">
+      <p>Epilepsy is called drug-resistant (or refractory) when adequate trials of two properly chosen and tolerated anti-seizure medications fail to achieve sustained freedom from seizures. This affects roughly one in three people with epilepsy.</p>
+      <p>For these people, more pills are often not enough. Other paths are then considered: epilepsy surgery, vagus nerve stimulation (VNS), the ketogenic diet, or specialist evaluation at centers such as the Brno Epilepsy Center — and this is exactly the path Marek's family is fighting for.</p>
+    </div>
+    <div data-lang="de">
+      <p>Epilepsie gilt als arzneimittelresistent (oder refraktär), wenn trotz angemessener Versuche mit zwei richtig gewählten und vertragenen Anfallsmedikamenten keine dauerhafte Anfallsfreiheit erreicht wird. Davon ist etwa jeder dritte Mensch mit Epilepsie betroffen.</p>
+      <p>Für diese Menschen reichen weitere Tabletten oft nicht aus. Dann kommen andere Wege in Betracht: Epilepsiechirurgie, Vagusnervstimulation (VNS), die ketogene Diät oder eine spezialisierte Abklärung in Zentren wie dem Brünn Epilepsiezentrum — und genau für diesen Weg kämpft Mareks Familie.</p>
+    </div>
+  </section>
+
+  <!-- VNS -->
+  <section>
+    <h2>
+      <span data-lang="pl">Co to jest stymulator nerwu błędnego (VNS)?</span>
+      <span data-lang="en">What is a vagus nerve stimulator (VNS)?</span>
+      <span data-lang="de">Was ist ein Vagusnervstimulator (VNS)?</span>
+    </h2>
+    <div class="info-card">
+      <div data-lang="pl">
+        <p>VNS to niewielkie urządzenie wszczepiane pod skórę w okolicy klatki piersiowej, połączone elektrodą z nerwem błędnym na szyi. Wysyła regularne, łagodne impulsy elektryczne do mózgu, co u części pacjentów zmniejsza częstotliwość i nasilenie napadów. Marek ma taki stymulator — to jeden z etapów leczenia, przez które już przeszedł, obok operacji guza mózgu i zabiegu w 2023 roku.</p>
+      </div>
+      <div data-lang="en">
+        <p>A VNS is a small device implanted under the skin near the chest, connected by a wire to the vagus nerve in the neck. It sends regular, gentle electrical pulses to the brain, which for some patients reduces the frequency and severity of seizures. Marek has such a stimulator — one of the treatment stages he has already been through, alongside brain-tumor surgery and a 2023 procedure.</p>
+      </div>
+      <div data-lang="de">
+        <p>Ein VNS ist ein kleines Gerät, das unter die Haut im Brustbereich eingesetzt und über eine Elektrode mit dem Vagusnerv am Hals verbunden wird. Es sendet regelmäßige, sanfte elektrische Impulse an das Gehirn, was bei manchen Patienten Häufigkeit und Schwere der Anfälle verringert. Marek trägt einen solchen Stimulator — eine der Behandlungsstufen, die er bereits durchlaufen hat, neben einer Hirntumor-Operation und einem Eingriff 2023.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seizures vary / drop attacks -->
+  <section>
+    <h2>
+      <span data-lang="pl">Napad nie zawsze wygląda tak samo</span>
+      <span data-lang="en">A seizure doesn't always look the same</span>
+      <span data-lang="de">Ein Anfall sieht nicht immer gleich aus</span>
+    </h2>
+    <div data-lang="pl">
+      <p>W popularnym wyobrażeniu napad to drgawki całego ciała i utrata przytomności. To prawda — ale to tylko jeden z wielu rodzajów. Napady mogą wyglądać jak chwilowe „zawieszenie się", wpatrywanie w jeden punkt, dziwne ruchy ręki czy nagłe, niekontrolowane upadki.</p>
+      <p>U Marka szczególnie groźne są właśnie te ostatnie. <strong>Upadek jest początkiem ataku, a nie jego skutkiem</strong> — nie da się go przewidzieć ani zamortyzować. Dlatego każde zwykłe wyjście niesie realne ryzyko urazu głowy. To dlatego czas w jego sprawie naprawdę ma znaczenie.</p>
+    </div>
+    <div data-lang="en">
+      <p>In the popular image, a seizure means whole-body convulsions and loss of consciousness. That is real — but it is only one of many types. Seizures can look like a brief "freeze", staring at a single point, odd hand movements, or sudden, uncontrolled falls.</p>
+      <p>For Marek, it is those last ones that are especially dangerous. <strong>The fall is the start of the attack, not its result</strong> — it cannot be predicted or cushioned. That is why every ordinary outing carries a real risk of head injury, and why time genuinely matters in his case.</p>
+    </div>
+    <div data-lang="de">
+      <p>Im populären Bild bedeutet ein Anfall Krämpfe des ganzen Körpers und Bewusstseinsverlust. Das ist real — aber nur eine von vielen Arten. Anfälle können wie ein kurzes „Einfrieren" aussehen, wie Starren auf einen Punkt, seltsame Handbewegungen oder plötzliche, unkontrollierte Stürze.</p>
+      <p>Bei Marek sind gerade die Letzteren besonders gefährlich. <strong>Der Sturz ist der Beginn des Anfalls, nicht seine Folge</strong> — er lässt sich weder vorhersagen noch abfangen. Deshalb birgt jeder gewöhnliche Ausgang ein echtes Risiko einer Kopfverletzung, und deshalb spielt die Zeit in seinem Fall wirklich eine Rolle.</p>
+    </div>
+  </section>
+
+  <!-- First aid -->
+  <section>
+    <h2>
+      <span data-lang="pl">Pierwsza pomoc przy napadzie z drgawkami</span>
+      <span data-lang="en">First aid for a convulsive seizure</span>
+      <span data-lang="de">Erste Hilfe bei einem Krampfanfall</span>
+    </h2>
+
+    <div class="aid-grid">
+      <div class="aid-col aid-do">
+        <h3>
+          <span data-lang="pl">Rób to</span>
+          <span data-lang="en">Do this</span>
+          <span data-lang="de">Das solltest du tun</span>
+        </h3>
+        <ul data-lang="pl">
+          <li>Zachowaj spokój i zostań przy osobie do końca napadu.</li>
+          <li>Spójrz na zegarek — zmierz czas trwania napadu.</li>
+          <li>Usuń z otoczenia twarde i ostre przedmioty.</li>
+          <li>Podłóż coś miękkiego pod głowę (kurtkę, torbę).</li>
+          <li>Poluzuj ubranie przy szyi.</li>
+          <li>Po ustaniu drgawek ułóż osobę w pozycji bezpiecznej (na boku).</li>
+          <li>Zostań przy niej, aż w pełni odzyska świadomość, i spokojnie wytłumacz, co się stało.</li>
+        </ul>
+        <ul data-lang="en">
+          <li>Stay calm and stay with the person until the seizure ends.</li>
+          <li>Check the time — measure how long the seizure lasts.</li>
+          <li>Move hard or sharp objects out of the way.</li>
+          <li>Put something soft under their head (a jacket, a bag).</li>
+          <li>Loosen anything tight around the neck.</li>
+          <li>Once the convulsions stop, roll them onto their side (recovery position).</li>
+          <li>Stay until they fully recover, then calmly explain what happened.</li>
+        </ul>
+        <ul data-lang="de">
+          <li>Bleib ruhig und bleib bei der Person bis zum Ende des Anfalls.</li>
+          <li>Schau auf die Uhr — miss, wie lange der Anfall dauert.</li>
+          <li>Räume harte oder scharfe Gegenstände aus dem Weg.</li>
+          <li>Leg etwas Weiches unter den Kopf (Jacke, Tasche).</li>
+          <li>Lockere enge Kleidung am Hals.</li>
+          <li>Wenn die Krämpfe aufhören, bring die Person in die stabile Seitenlage.</li>
+          <li>Bleib, bis sie sich vollständig erholt hat, und erkläre ruhig, was passiert ist.</li>
+        </ul>
+      </div>
+
+      <div class="aid-col aid-dont">
+        <h3>
+          <span data-lang="pl">Nie rób tego</span>
+          <span data-lang="en">Don't do this</span>
+          <span data-lang="de">Das solltest du nicht tun</span>
+        </h3>
+        <ul data-lang="pl">
+          <li>Nie wkładaj nic do ust — to mit, grozi to zakrztuszeniem i urazem.</li>
+          <li>Nie przytrzymuj na siłę i nie krępuj ruchów.</li>
+          <li>Nie próbuj „rozprostowywać" ani podnosić osoby w trakcie napadu.</li>
+          <li>Nie podawaj wody, leków ani jedzenia, dopóki nie odzyska pełnej świadomości.</li>
+          <li>Nie zostawiaj osoby samej.</li>
+          <li>Nie panikuj — większość napadów mija samoistnie w ciągu kilku minut.</li>
+        </ul>
+        <ul data-lang="en">
+          <li>Don't put anything in their mouth — it's a myth; it risks choking and injury.</li>
+          <li>Don't hold them down or restrain their movements.</li>
+          <li>Don't try to "straighten" or lift the person during the seizure.</li>
+          <li>Don't give water, medication, or food until they are fully alert.</li>
+          <li>Don't leave the person alone.</li>
+          <li>Don't panic — most seizures stop on their own within a few minutes.</li>
+        </ul>
+        <ul data-lang="de">
+          <li>Steck nichts in den Mund — das ist ein Mythos; es droht Ersticken und Verletzung.</li>
+          <li>Halte die Person nicht fest und schränke ihre Bewegungen nicht ein.</li>
+          <li>Versuche nicht, die Person während des Anfalls „geradezubiegen" oder hochzuheben.</li>
+          <li>Gib kein Wasser, keine Medikamente und kein Essen, bis sie voll wach ist.</li>
+          <li>Lass die Person nicht allein.</li>
+          <li>Gerate nicht in Panik — die meisten Anfälle hören von selbst innerhalb weniger Minuten auf.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="call-emergency">
+      <h3>
+        <span data-lang="pl">Wezwij pomoc (112), jeśli:</span>
+        <span data-lang="en">Call emergency services (112) if:</span>
+        <span data-lang="de">Rufe den Notruf (112), wenn:</span>
+      </h3>
+      <span class="enum">112</span>
+      <ul data-lang="pl">
+        <li>napad trwa dłużej niż 5 minut;</li>
+        <li>jeden napad następuje zaraz po drugim bez odzyskania przytomności;</li>
+        <li>osoba ma trudności z oddychaniem lub nie odzyskuje przytomności;</li>
+        <li>doszło do poważnego urazu (np. uderzenia głową);</li>
+        <li>napad zdarzył się w wodzie;</li>
+        <li>to pierwszy napad w życiu tej osoby lub nie wiesz, że choruje.</li>
+      </ul>
+      <ul data-lang="en">
+        <li>the seizure lasts longer than 5 minutes;</li>
+        <li>one seizure follows another without the person regaining consciousness;</li>
+        <li>the person has trouble breathing or does not regain consciousness;</li>
+        <li>there is a serious injury (e.g. a blow to the head);</li>
+        <li>the seizure happened in water;</li>
+        <li>it is the person's first-ever seizure, or you don't know they have epilepsy.</li>
+      </ul>
+      <ul data-lang="de">
+        <li>der Anfall länger als 5 Minuten dauert;</li>
+        <li>ein Anfall direkt auf den nächsten folgt, ohne dass die Person das Bewusstsein wiedererlangt;</li>
+        <li>die Person Atemprobleme hat oder das Bewusstsein nicht wiedererlangt;</li>
+        <li>eine schwere Verletzung vorliegt (z. B. ein Schlag auf den Kopf);</li>
+        <li>der Anfall im Wasser passiert ist;</li>
+        <li>es der erste Anfall der Person ist oder du nicht weißt, dass sie Epilepsie hat.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Test yourself CTA -->
+  <section>
+    <h2>
+      <span data-lang="pl">Sprawdź, czy zapamiętałeś</span>
+      <span data-lang="en">Test what you remember</span>
+      <span data-lang="de">Teste, was du behalten hast</span>
+    </h2>
+    <div data-lang="pl">
+      <p>Przygotowaliśmy krótki, interaktywny quiz pierwszej pomocy oparty na realnych sytuacjach. Kilka minut — a wiedza zostaje na lata.</p>
+    </div>
+    <div data-lang="en">
+      <p>We've put together a short, interactive first-aid quiz based on real-life situations. A few minutes — and the knowledge stays for years.</p>
+    </div>
+    <div data-lang="de">
+      <p>Wir haben ein kurzes, interaktives Erste-Hilfe-Quiz auf Basis realer Situationen erstellt. Ein paar Minuten — und das Wissen bleibt jahrelang.</p>
+    </div>
+    <p>
+      <a href="gra.html" class="btn-donate" style="margin-top:14px; background:#1a1a2e; color:#fff;">
+        <span data-lang="pl">Przejdź do quizu →</span>
+        <span data-lang="en">Go to the quiz →</span>
+        <span data-lang="de">Zum Quiz →</span>
+      </a>
+    </p>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h2>
+      <span data-lang="pl">Pomóż Markowi</span>
+      <span data-lang="en">Help Marek</span>
+      <span data-lang="de">Hilf Marek</span>
+    </h2>
+    <p>
+      <span data-lang="pl">Za tymi definicjami stoi konkretny człowiek i konkretny, kończący się czas. Każda wpłata i każde udostępnienie przybliża leczenie w Brnie.</span>
+      <span data-lang="en">Behind these definitions stands a real person and a real, running-out clock. Every donation and every share brings the treatment in Brno closer.</span>
+      <span data-lang="de">Hinter diesen Definitionen steht ein echter Mensch und eine real ablaufende Uhr. Jede Spende und jedes Teilen bringt die Behandlung in Brünn näher.</span>
+    </p>
+    <a href="https://zrzutka.pl/4y66vs" target="_blank" rel="noopener" class="btn-donate">
+      <img src="assets/img_zrzutka.svg" alt="zrzutka.pl" class="btn-donate-logo">
+      <span data-lang="pl">Wpłać na zrzutka.pl</span>
+      <span data-lang="en">Donate via zrzutka.pl</span>
+      <span data-lang="de">Spenden via zrzutka.pl</span>
+    </a>
+    <p style="margin-top:14px; font-size:0.82rem; color:#5a7090;">zrzutka.pl/4y66vs</p>
+  </div>
+
+</main>
+
+<footer>
+  <span data-lang="pl">Materiał informacyjny — nie zastępuje porady lekarskiej · Zbiórka dla Marka Gadomskiego · 2026</span>
+  <span data-lang="en">Informational material — not a substitute for medical advice · Fundraiser for Marek Gadomski · 2026</span>
+  <span data-lang="de">Informationsmaterial — kein Ersatz für ärztlichen Rat · Spendensammlung für Marek Gadomski · 2026</span>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>
