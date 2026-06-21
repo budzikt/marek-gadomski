@@ -1,0 +1,118 @@
+:root {
+  /* Palette — carried over verbatim from the original site */
+  --navy: #1a1a2e;
+  --navy-2: #16213e;
+  --blue: #0f3460;
+  --red: #d01b42;
+  --red-hover: #e8203f;
+  --sand: #c8b89a;
+  --paper: #f9f6f1;
+  --ink: #2c2c2c;
+  --link: #1a5276;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.75;
+}
+
+/* ── Header ── */
+header.page-header {
+  background: var(--navy);
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px 40px;
+}
+header.page-header h1 {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: normal;
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+}
+header.page-header p.subtitle {
+  font-size: 1.05rem;
+  color: #b0b8d0;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ── Layout ── */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+section {
+  margin-top: 50px;
+}
+
+h2 {
+  font-size: 1.35rem;
+  font-weight: normal;
+  color: var(--navy);
+  border-bottom: 2px solid var(--sand);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+p {
+  margin-bottom: 16px;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--link);
+}
+
+.lead {
+  font-size: 1.12rem;
+  color: #4a4030;
+  margin-bottom: 28px;
+}
+
+/* ── Footer ── */
+footer.page-footer {
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 0.8rem;
+  color: #999;
+  border-top: 1px solid #ddd;
+  margin-top: 60px;
+}
+
+/* Shared focus treatment (light a11y polish) */
+:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Respect users who prefer no motion (also a kindness on an epilepsy-related site) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+  }
+}
+
+@media (max-width: 500px) {
+  header.page-header {
+    padding: 36px 16px 28px;
+  }
+}

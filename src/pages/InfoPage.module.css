@@ -1,0 +1,118 @@
+.infoCard {
+  background: #fff;
+  border: 1px solid #e3dccb;
+  border-radius: 6px;
+  padding: 22px 24px;
+  margin-top: 16px;
+}
+
+/* First-aid do / don't columns */
+.aidGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 8px;
+}
+.aidCol {
+  border-radius: 6px;
+  padding: 18px 20px;
+}
+.aidDo {
+  background: #f0f7f0;
+  border: 1px solid #cfe6cf;
+}
+.aidDont {
+  background: #fdf4f4;
+  border: 1px solid #f0d3d3;
+}
+.aidCol h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-weight: normal;
+  color: var(--navy);
+  font-size: 1.1rem;
+}
+.aidCol ul {
+  list-style: none;
+}
+.aidCol li {
+  padding-left: 28px;
+  position: relative;
+  margin-bottom: 11px;
+  line-height: 1.55;
+}
+.aidDo li::before {
+  content: '✓';
+  position: absolute;
+  left: 4px;
+  color: #2e7d32;
+  font-weight: bold;
+}
+.aidDont li::before {
+  content: '✕';
+  position: absolute;
+  left: 4px;
+  color: #c0392b;
+  font-weight: bold;
+}
+
+.callEmergency {
+  background: #7b1c1c;
+  color: #fff;
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin-top: 24px;
+}
+.callEmergency h3 {
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+.enum {
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 12px;
+}
+.callEmergency ul {
+  list-style: none;
+}
+.callEmergency li {
+  padding-left: 22px;
+  position: relative;
+  margin-bottom: 8px;
+  color: #ffd9d9;
+}
+.callEmergency li::before {
+  content: '›';
+  position: absolute;
+  left: 4px;
+  color: #ff9b9b;
+}
+
+.quizLink {
+  display: inline-block;
+  margin-top: 14px;
+  background: var(--navy);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  padding: 16px 48px;
+  border-radius: 5px;
+  transition: background 0.15s, transform 0.1s;
+}
+.quizLink:hover {
+  background: var(--navy-2);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 560px) {
+  .aidGrid {
+    grid-template-columns: 1fr;
+  }
+}

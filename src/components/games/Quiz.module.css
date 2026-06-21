@@ -1,0 +1,151 @@
+.stage {
+  background: #fff;
+  border: 1px solid #e3dccb;
+  border-radius: 8px;
+  padding: 26px 26px 30px;
+}
+
+.progress {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #97836a;
+  margin-bottom: 14px;
+}
+
+.bar {
+  height: 6px;
+  background: #ece5d6;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+.bar > span {
+  display: block;
+  height: 100%;
+  background: var(--sand);
+  width: 0;
+  transition: width 0.4s ease;
+}
+
+.scenario {
+  font-size: 1.18rem;
+  color: var(--navy);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.option {
+  font-family: inherit;
+  text-align: left;
+  background: #faf7f1;
+  border: 1px solid #e0d8c6;
+  color: var(--ink);
+  padding: 14px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.45;
+  transition: background 0.15s, border-color 0.15s;
+}
+.option:hover:not(:disabled) {
+  background: #f3ece0;
+  border-color: var(--sand);
+}
+.option:disabled {
+  cursor: default;
+}
+.option.correct {
+  background: #e7f4e8;
+  border-color: #7cc47f;
+  color: #1e5e22;
+}
+.option.wrong {
+  background: #fbe9e9;
+  border-color: #e09b9b;
+  color: #8a2020;
+}
+
+.feedback {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: 6px;
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+.feedback.good {
+  background: #eef6ee;
+  border-left: 4px solid #4caf50;
+  color: #2c4a2e;
+}
+.feedback.bad {
+  background: #fbeeee;
+  border-left: 4px solid #d05050;
+  color: #5a2828;
+}
+
+.next {
+  margin-top: 18px;
+  font-family: inherit;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  transition: background 0.15s, transform 0.1s;
+}
+.next:hover {
+  background: var(--red-hover);
+  transform: translateY(-1px);
+}
+
+/* Result */
+.result {
+  text-align: center;
+  padding: 10px 0;
+}
+.score {
+  font-size: 3rem;
+  color: var(--navy);
+  display: block;
+  margin: 8px 0 4px;
+}
+.verdict {
+  font-size: 1.15rem;
+  color: #4a4030;
+  margin-bottom: 8px;
+}
+.blurb {
+  color: #5a5446;
+  max-width: 520px;
+  margin: 0 auto 22px;
+}
+.restart {
+  font-family: inherit;
+  background: #eee8dc;
+  border: 1px solid #d8cdb4;
+  color: #4a4030;
+  padding: 9px 22px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.15s;
+}
+.restart:hover {
+  background: #e4dbc7;
+}
+
+@media (max-width: 560px) {
+  .scenario {
+    font-size: 1.06rem;
+  }
+}

@@ -1,0 +1,109 @@
+.narrator {
+  background: #eee8dc;
+  border-left: 4px solid var(--sand);
+  padding: 18px 22px;
+  border-radius: 0 4px 4px 0;
+  font-style: italic;
+  color: #4a4030;
+  margin-bottom: 32px;
+}
+
+.sectionGood {
+  background: #f0f7f0;
+  border-radius: 6px;
+  padding: 20px 22px;
+}
+.sectionHurt {
+  background: #fdf4f4;
+  border-radius: 6px;
+  padding: 20px 22px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+.badgeGood {
+  background: #c8e6c9;
+  color: #256029;
+}
+.badgeHurt {
+  background: #ffcdd2;
+  color: #7b1c1c;
+}
+
+/* ── Cost box ── */
+.costBox {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 16px;
+}
+.costBox table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.96rem;
+}
+.costBox th {
+  background: var(--navy);
+  color: #fff;
+  text-align: left;
+  padding: 10px 16px;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+}
+.costBox td {
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+.costBox tr:last-child td {
+  border-bottom: none;
+}
+.total td {
+  font-weight: bold;
+  background: #fafafa;
+  color: var(--navy);
+}
+.amount {
+  text-align: right;
+  white-space: nowrap;
+  color: #333;
+}
+
+.transparency {
+  background: #fff;
+  border: 1px solid var(--sand);
+  border-radius: 6px;
+  padding: 18px 22px;
+  margin-top: 32px;
+  font-size: 0.93rem;
+  color: #4a4030;
+}
+
+/* ── Zrzutka widget ── */
+.widget {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+.widgetInner {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+.widgetFrame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

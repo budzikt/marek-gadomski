@@ -1,0 +1,32 @@
+.btn {
+  display: inline-block;
+  margin-top: 28px;
+  background: var(--red);
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  padding: 16px 48px;
+  border-radius: 5px;
+  transition: background 0.15s, transform 0.1s;
+}
+.btn:hover {
+  background: var(--red-hover);
+  color: var(--navy);
+  transform: translateY(-2px);
+}
+
+.logo {
+  height: 20px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 10px;
+  filter: brightness(0) invert(1);
+}
+
+.url {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: #5a7090;
+}

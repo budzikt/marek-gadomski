@@ -1,0 +1,54 @@
+.safeNotice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #eef4ef;
+  border: 1px solid #cfe0d2;
+  border-radius: 6px;
+  padding: 12px 18px;
+  font-size: 0.88rem;
+  color: #3c5a44;
+  margin-bottom: 28px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #3aa856;
+  flex-shrink: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.tabs button {
+  font-family: inherit;
+  background: #eee8dc;
+  border: 1px solid #d8cdb4;
+  color: #4a4030;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.tabs button:hover {
+  background: #e4dbc7;
+}
+.tabs button.active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+.backWrap {
+  margin-top: 30px;
+}
+.backLink {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.95rem;
+}

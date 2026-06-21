@@ -1,0 +1,54 @@
+.float {
+  position: fixed;
+  right: 20px;
+  bottom: 32px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.float.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+}
+.float a {
+  display: block;
+  background: var(--red);
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  padding: 13px 22px;
+  border-radius: 5px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+  transition: background 0.15s, transform 0.1s;
+  text-align: center;
+  white-space: nowrap;
+}
+.float a:hover {
+  background: var(--red-hover);
+  transform: translateY(-2px);
+}
+.logo {
+  height: 18px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 8px;
+  filter: brightness(0) invert(1);
+}
+.url {
+  font-size: 0.72rem;
+  color: #666;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .float {
+    right: 12px;
+    bottom: 16px;
+  }
+}
